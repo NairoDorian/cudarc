@@ -2550,18 +2550,6 @@ impl CudaFunction {
         Ok(cluster_size as u32)
     }
 
-    /// Returns the underlying CUDA function object.
-    /// Use at your own risk.
-    ///
-    /// # Warning
-    ///
-    /// The returned handle is only valid as long as the [CudaModule] that loaded
-    /// this function remains loaded. Using the handle after the module is unloaded
-    /// may cause undefined behavior or a driver error.
-    pub fn cu_function(&self) -> sys::CUfunction {
-        self.cu_function
-    }
-
     /// Get the value of a specific attribute of this [CudaFunction].
     ///
     /// See [CUDA docs](https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__EXEC.html#group__CUDA__EXEC_1g5e92a1b0d8d1b82cb00dcfb2de15961b)
